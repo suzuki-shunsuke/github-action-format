@@ -1,0 +1,7 @@
+registries:
+- type: standard
+  ref: v0.9.1 # renovate: depName=suzuki-shunsuke/aqua-registry
+
+packages:
+- name: int128/ghcp@v1.13.0
+- name: mvdan/sh@v3.4.0
