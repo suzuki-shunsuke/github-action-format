@@ -4,8 +4,8 @@ set -eu
 set -o pipefail
 
 tempfile=$(mktemp)
-eval "$INPUT_COMMAND" > "$tempfile"
-if [ 0 -eq "$(wc -l < "$tempfile")" ]; then
+eval "$INPUT_COMMAND" >"$tempfile"
+if [ 0 -eq "$(wc -l <"$tempfile")" ]; then
 	exit 0
 fi
 
