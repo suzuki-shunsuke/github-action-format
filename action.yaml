@@ -26,3 +26,4 @@ runs:
         ROOT_DIR: ${{ github.workspace }}
         INPUT_COMMAND: ${{ inputs.command }}
         INPUT_COMMIT_MESSAGE: ${{ inputs.commit_message }}
+        EVENT_NAME: ${{ github.event_name }}

@@ -9,6 +9,10 @@ if [ 0 -eq "$(wc -l <"$tempfile")" ]; then
 	exit 0
 fi
 
+if [ "$EVENT_NAME" != "pull_request" ]; then
+  exit 1
+fi
+
 # shellcheck disable=SC2046
 ghcp commit -r "$GITHUB_REPOSITORY" -b "$GITHUB_HEAD_REF" \
 	-m "$INPUT_COMMIT_MESSAGE" \
