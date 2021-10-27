@@ -10,7 +10,7 @@ if [ 0 -eq "$(wc -l <"$tempfile")" ]; then
 fi
 
 if [ "$EVENT_NAME" != "pull_request" ]; then
-  exit 1
+	exit 1
 fi
 
 # shellcheck disable=SC2046
