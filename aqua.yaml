@@ -6,4 +6,4 @@ registries:
 
 packages:
 - name: int128/ghcp@v1.13.1
-- name: mvdan/sh@v3.5.1
+- name: mvdan/sh@v3.6.0
