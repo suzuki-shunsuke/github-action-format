@@ -9,8 +9,9 @@ if [ 0 -eq "$(wc -l <"$tempfile")" ]; then
 	exit 0
 fi
 
-if [ "$EVENT_NAME" != "pull_request" ]; then
-	exit 1
+# Check if EVENT_NAME is either pull_request or pull_request_target
+if [ "$EVENT_NAME" != "pull_request" ] && [ "$EVENT_NAME" != "pull_request_target" ]; then
+    exit 1
 fi
 
 # shellcheck disable=SC2046
