@@ -11,7 +11,10 @@ fi
 
 # Check if EVENT_NAME is either pull_request or pull_request_target
 if [ "$EVENT_NAME" != "pull_request" ] && [ "$EVENT_NAME" != "pull_request_target" ]; then
-    { echo "Error: Invalid event name. Expected either 'pull_request' or 'pull_request_target'."; exit 1; }
+	{
+		echo "Error: Invalid event name. Expected either 'pull_request' or 'pull_request_target'."
+		exit 1
+	}
 fi
 
 # shellcheck disable=SC2046
