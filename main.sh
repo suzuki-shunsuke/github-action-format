@@ -23,7 +23,7 @@ fi
 
 branch=${GITHUB_HEAD_REF:-$GITHUB_REF}
 
-if [[ "$branch" =~ ^refs/tags/ ]]; then
+if [[ $branch =~ ^refs/tags/ ]]; then
 	exit 1
 fi
 
