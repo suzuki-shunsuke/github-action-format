@@ -16,14 +16,14 @@ if [ "$SKIP_PUSH" = true ]; then
 	exit 1
 fi
 
-if ! ghcp -v; then
-	echo "::error :: ghcp is required to push a commit. Please install https://github.com/int128/ghcp"
-	exit 1
-fi
-
 branch=${GITHUB_HEAD_REF:-$GITHUB_REF}
 
 if [[ $branch =~ ^refs/tags/ ]]; then
+	exit 1
+fi
+
+if ! ghcp -v; then
+	echo "::error :: ghcp is required to push a commit. Please install https://github.com/int128/ghcp"
 	exit 1
 fi
 
