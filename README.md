@@ -11,6 +11,16 @@ If code is changed and the input `skip_push` is `false`, this action commits the
 
 - [ghcp](https://github.com/int128/ghcp)
 
+## Examples
+
+```yaml
+- uses: suzuki-shunsuke/github-action-format@v0.2.0
+  with:
+    command: terraform fmt -recursive | sed "s|^|${{ inputs.working_directory }}/|"
+    commit_message: "style: terraform fmt -recursive"
+    skip_push: ${{ github.event_name != 'pull_request' && ! startsWith(github.event_name, 'pull_request_') }}
+```
+
 ## License
 
 [MIT](LICENSE)
