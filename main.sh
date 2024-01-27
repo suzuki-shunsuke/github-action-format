@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu
-set -o pipefail
+set -euo pipefail
 
 tempfile=$(mktemp)
 eval "$INPUT_COMMAND" >"$tempfile"
@@ -12,8 +11,7 @@ fi
 
 echo "::error Files aren't formatted"
 
-# Check if EVENT_NAME is either pull_request or pull_request_target
-if [ "$EVENT_NAME" != "pull_request" ] && [ "$EVENT_NAME" != "pull_request_target" ]; then
+if [ "$SKIP_PUSH" = true ]; then
 	rm "$tempfile"
 	exit 1
 fi
