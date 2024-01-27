@@ -9,10 +9,17 @@ if [ 0 -eq "$(wc -l <"$tempfile")" ]; then
 	exit 0
 fi
 
-echo "::error Files aren't formatted"
+echo "::error :: Files aren't formatted"
 
 if [ "$SKIP_PUSH" = true ]; then
 	rm "$tempfile"
+	exit 1
+fi
+
+echo "::notice :: Pushing a commit using ghcp to format code"
+
+if ! ghcp -v; then
+	echo "::error :: ghcp is required. Please install https://github.com/int128/ghcp"
 	exit 1
 fi
 
