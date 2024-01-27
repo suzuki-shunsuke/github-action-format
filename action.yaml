@@ -15,6 +15,10 @@ inputs:
     description: working directory
     required: false
     default: ""
+  skip_push:
+    required: false
+    description: If "true", this action skips pushing a commit
+    default: false
 runs:
   using: composite
   steps:
@@ -23,6 +27,7 @@ runs:
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
+        SKIP_PUSH: ${{ inputs.skip_push }}
         ROOT_DIR: ${{ github.workspace }}
         INPUT_COMMAND: ${{ inputs.command }}
         INPUT_COMMIT_MESSAGE: ${{ inputs.commit_message }}
