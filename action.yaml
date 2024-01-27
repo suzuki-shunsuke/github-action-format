@@ -19,6 +19,10 @@ inputs:
     required: false
     description: If "true", this action skips pushing a commit
     default: false
+  branch:
+    required: false
+    description: branch where a commit is pushed
+    default: ""
 runs:
   using: composite
   steps:
@@ -32,3 +36,4 @@ runs:
         INPUT_COMMAND: ${{ inputs.command }}
         INPUT_COMMIT_MESSAGE: ${{ inputs.commit_message }}
         EVENT_NAME: ${{ github.event_name }}
+        BRANCH: ${{ inputs.branch }}
