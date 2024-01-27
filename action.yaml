@@ -1,5 +1,5 @@
-name: terraform fmt
-description: terraform fmt
+name: Format code
+description: Format code
 inputs:
   github_token:
     description: 'GitHub Access Token'
