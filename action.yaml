@@ -26,7 +26,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: bash ${{ github.action_path }}/main.sh
+    - run: bash "$GITHUB_ACTION_PATH/main.sh"
       working-directory: ${{ inputs.working_directory }}
       shell: bash
       env:
